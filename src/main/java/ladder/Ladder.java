@@ -21,17 +21,19 @@ public class Ladder {
 
     private void getStage(int stage) {
         for(int i = 0; i < ladderImage[stage].length; i++) {
-            getStep(stage, i);
+            ladderImage[stage][i] = getStep(i, getRandom());
         }
     }
 
-    private void getStep(int stage, int step) {
-        ladderImage[stage][step] = step % 2 == 0 ? VERTICAL_BAR : getLadderImage();
+    public char getStep(int step, boolean barStage) {
+        return step % 2 == 0 ? VERTICAL_BAR : getLadderImage(barStage);
     }
 
-    private char getLadderImage() {
-        return new Random().nextBoolean() ? HORIZONTAL_BAR : NO_BAR;
+    private char getLadderImage(boolean barStage) {
+        return barStage ? HORIZONTAL_BAR : NO_BAR;
     }
 
-
+    private boolean getRandom() {
+        return new Random().nextBoolean();
+    }
 }

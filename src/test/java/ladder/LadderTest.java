@@ -20,7 +20,9 @@ public class LadderTest {
     }
 
     @Test
-    public void getLadderTest() {
-        getLadderTest();
+    public void getStepTest() {
+        assertEquals(ladder.getStep(0, false), '|');
+        assertEquals(ladder.getStep(1, true), '-');
+        assertEquals(ladder.getStep(1, false), ' ');
     }
 }
