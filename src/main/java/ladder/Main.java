@@ -2,8 +2,10 @@ package ladder;
 
 public class Main {
     public static void main(String[] args) {
-        Ladder ladder = new Ladder(InputView.getParticipation(), InputView.getladderHeight());
+        String[] participations = InputView.getParticipation();
+        Ladder ladder = new Ladder(participations.length, InputView.getladderHeight());
         InputView.close();
+        ResultView.printParticipations(participations);
         ResultView.printLadder(ladder.getLadder());
     }
 }
