@@ -4,8 +4,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-
 import static org.junit.Assert.*;
 
 public class ResultViewTest {
@@ -44,4 +42,5 @@ public class ResultViewTest {
     public void nameFormatTest() {
         assertEquals(rv.nameFormatTest("a"), "     a");
     }
+
 }

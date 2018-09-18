@@ -1,6 +1,6 @@
 package ladder;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class ResultView {
     private static final char VERTICAL_BAR = '|';
@@ -16,10 +16,10 @@ public class ResultView {
     }
 
     private static String nameFormat(String name) {
-        return String.format("%" + (MAX_NAME_LENGTH) + "s", name);
+        return String.format("%" + (MAX_NAME_LENGTH + 1) + "s", name);
     }
 
-    public static void printLadder(ArrayList<Line> ladderImage) {
+    public static void printLadder(List<Line> ladderImage) {
         StringBuilder sb = new StringBuilder();
         for (Line line : ladderImage) {
             sb.append(printLine(line)).append("\n");

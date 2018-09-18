@@ -1,6 +1,7 @@
 package ladder;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Ladder {
@@ -13,7 +14,7 @@ public class Ladder {
         this.countOfPerson = countOfPerson;
     }
 
-    public ArrayList<Line> getLadder() {
+    public List<Line> getLadder() {
         for(int i = 0; i < height; i++) {
             ladderImage.add(getLine());
         }

@@ -1,10 +1,9 @@
 package ladder;
 
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
 
 public class Line {
-    private ArrayList<Boolean> points = new ArrayList<>();
+    private List<Boolean> points = new ArrayList<>();
     private int countOfPerson;
 
     public Line(int countOfPerson) {
@@ -14,16 +13,12 @@ public class Line {
     public void makeLine() {
         addPoint(false);
         for(int i = 1; i < countOfPerson; i++) {
-            if(isContinous(points.get(i - 1))) {
-                addPoint(false);
-            } else {
-                addPoint(getRandom());
-            }
+            addPoint(isContinous(i) ? false : getRandom());
         }
     }
 
-    private boolean isContinous(boolean prev) {
-        return prev;
+    private boolean isContinous(int index) {
+        return points.get(index);
     }
 
     public void addPoint(boolean isBar) {
@@ -34,7 +29,11 @@ public class Line {
         return new Random().nextBoolean();
     }
 
-    public ArrayList<Boolean> getLine() {
-        return points; //getter 생성했음....
+    public List<Boolean> getLine() {
+        return Collections.unmodifiableList(points);
+    }
+
+    public boolean isContinousTest(int index) {
+        return isContinous(index);
     }
 }
