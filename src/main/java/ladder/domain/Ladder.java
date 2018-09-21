@@ -15,7 +15,7 @@ public class Ladder {
 	private Line makeLine() {
 		return new Line(countOfPerson).makeLine();
 	}
-	
+
 	public List<Line> getLadder() {
 		for(int i = 0; i < height; i++) {
 			ladderImage.add(makeLine());

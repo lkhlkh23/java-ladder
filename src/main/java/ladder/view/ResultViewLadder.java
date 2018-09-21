@@ -34,7 +34,7 @@ public class ResultViewLadder {
 	private static char getBar(Boolean isBar) {
 		if(isBar) {
 			return HORIZONTAL_BAR;
-		}
+		} 
 		return NO_BAR;
 	}
 }
