@@ -1,6 +1,6 @@
-package ladder;
+package ladder.domain;
 import org.junit.*;
-
+import static org.assertj.core.api.Assertions.assertThat;
 import ladder.domain.Line;
 
 public class LineTest {
@@ -14,25 +14,25 @@ public class LineTest {
 	
 	@After
 	public void tearDown() throws Exception {
-		line = null;
+
 	}
 	
 	/* 1. bar or no_bar 입력되었는지 테스트 */
 	@Test
 	public void addPointTest() {
-		Assert.assertEquals(2, line.getPointsSize());
+		assertThat(line.getPointsSize()).isEqualTo(2);
 	}
 	
 	/* 3. 연속성 테스트 */
 	@Test
 	public void isContinousTest() {
-		Assert.assertEquals(true, line.isContinous(2, true));
+		assertThat(line.isContinous(2, true)).isEqualTo(true);
 	}
 	
 	/* 4. 연속이면 다음에 false(noBar)인지 테스트 */
 	@Test
 	public void getBarTest() {
-		Assert.assertEquals(false, line.setBar(2, true));
+		assertThat(line.setBar(2, true)).isEqualTo(false);
 	}
 
 }

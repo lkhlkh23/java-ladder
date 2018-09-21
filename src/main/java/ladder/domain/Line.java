@@ -20,10 +20,7 @@ public class Line {
 	}
 	
 	public boolean isContinous(int index, boolean nowBar) {
-		if(prevBar(index - 1) == nowBar == true) {
-			return true;
-		}
-		return false;
+		return prevBar(index - 1) == nowBar;
 	}
 	
 	private boolean prevBar(int index) {
@@ -31,12 +28,16 @@ public class Line {
 	}
 	
 	public boolean setBar(int index, boolean nowBar) {
-		if(isContinous(index, nowBar)) {
+		if(isContinousBar(index, isContinous(index, nowBar))) {
 			return false; 
 		}
-		return getRandom();
+		return nowBar;
 	}
-	
+
+	private boolean isContinousBar(int index, boolean continous) {
+		return continous && prevBar(index - 1);
+	}
+
 	public Line makeLine() {
 		addPoint(false);
 		for(int i = 1; i < countOfPerson; i++) {
