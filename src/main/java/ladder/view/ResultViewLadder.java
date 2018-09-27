@@ -8,11 +8,19 @@ public class ResultViewLadder {
 	private static final char HORIZONTAL_BAR = '-';
 	private static final char VERTICAL_BAR = '|';
 	private static final char NO_BAR = ' ';
+
+	public static void printLadderResult(List<Line> ladderImage) {
+		printLadder(ladderImage);
+	}
 	
-	public static void printLadder(List<Line> ladderImage) {
+	private static void printLadder(List<Line> ladderImage) {
 		for(Line line : ladderImage) {
 			printLine(line);
 		}
+	}
+
+	public static void printResultMessage() {
+		System.out.println("사다리 결과");
 	}
 
 	private static void printLine(Line line) {

@@ -10,6 +10,12 @@ public class Line {
 		this.countOfPerson = countOfPerson;
 		points = new ArrayList<>();
 	}
+
+	/* 테스트를 위해 난수를 통해 생성되는 리스트를 생성자를 통해 SET! */
+	public Line(int countOfPerson, List<Boolean> points) {
+		this(countOfPerson);
+		this.points = points;
+	}
 	
 	public void addPoint(boolean isBar) {
 		points.add(isBar);

@@ -10,8 +10,8 @@ public class ParticipationTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		participation1 = new Participation("LEE KI");
-		participation2 = new Participation("LEE");
+		participation1 = new Participation("LEE KI", new Pointer(0));
+		participation2 = new Participation("LEE", new Pointer(1));
 	}
 	
 	@After

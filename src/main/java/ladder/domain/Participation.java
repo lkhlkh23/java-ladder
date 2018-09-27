@@ -3,9 +3,11 @@ package ladder.domain;
 public class Participation {
 	public static final int MAX_NAME_LENGTH = 5;
 	private String name;
+	private Pointer pointer;
 	
-	public Participation(String name) {
+	public Participation(String name, Pointer pointer) {
 		this.name = name;
+		this.pointer = pointer;
 	}
 
 	public int getNameSize() {
@@ -32,5 +34,9 @@ public class Participation {
 			subStringName();
 		}
 		return stringFormat();
+	}
+
+	public Pointer getPointer() {
+		return pointer;
 	}
 }
