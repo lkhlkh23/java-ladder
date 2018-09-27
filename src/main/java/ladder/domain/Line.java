@@ -59,4 +59,20 @@ public class Line {
 	public int getPointsSize() {
 		return points.size();
 	}
+
+	public boolean isMoveLeft(int pointX) {
+		if(pointX == 0) {
+			/* 좌측으로 이동이 불가능할 경우 */
+			return false;
+		}
+		return points.get(pointX);
+	}
+
+	public boolean isMoveRight(int pointX) {
+		if(pointX == points.size() - 1) {
+			/* 우측으로 이동이 불가능할 경우 */
+			return false;
+		}
+		return points.get(pointX + 1);
+	}
 }

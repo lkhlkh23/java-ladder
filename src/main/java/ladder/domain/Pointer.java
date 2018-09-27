@@ -9,32 +9,16 @@ public class Pointer {
         this.pointX = pointX;
     }
 
-    public void moveX(List<Boolean> ladderLine) {
-        pointX += moveDistance(ladderLine);
+    public void moveX(Line line) {
+        pointX += moveDistance(line);
     }
 
-    public boolean isMoveLeft(List<Boolean> ladderLine) {
-        if(pointX == 0) {
-            /* 좌측으로 이동이 불가능할 경우 */
-            return false;
-        }
-        return ladderLine.get(pointX);
-    }
-
-    public boolean isMoveRight(List<Boolean> ladderLine) {
-        if(pointX == ladderLine.size() - 1) {
-            /* 우측으로 이동이 불가능할 경우 */
-            return false;
-        }
-        return ladderLine.get(pointX + 1);
-    }
-
-    private int moveDistance(List<Boolean> ladderLine) {
-        if(isMoveLeft(ladderLine)) {
+    private int moveDistance(Line line) {
+        if(line.isMoveLeft(pointX)) {
             return -1;
         }
 
-        if(isMoveRight(ladderLine)) {
+        if(line.isMoveRight(pointX)) {
             return 1;
         }
         return 0;

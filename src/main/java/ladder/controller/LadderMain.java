@@ -8,7 +8,7 @@ public class LadderMain {
 
 	public static void main(String[] args) {
 		List<Participation> participations = InputView.getParticipations();
-		List<String> rewards = InputView.getReward();
+		List<String> rewards = InputView.getReward(participations.size());
 		int height = InputView.getLadderHeigth();
 
 		ResultViewLadder.printResultMessage();

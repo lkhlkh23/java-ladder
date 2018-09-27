@@ -19,9 +19,38 @@ public class InputView {
 		return sc.nextInt();
 	}
 
-	public static List<String> getReward() {
+	public static List<String> getReward(int participationNum) {
 		System.out.println("실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)");
-		return splitSentence(sc.next());
+		return fixRewardSize(splitSentence(sc.nextLine()), participationNum); 
+	}
+
+	private static int checkRewardNum(List<String> rewards, int participationNum) {
+		return rewards.size() - participationNum;
+	}
+
+	private static List<String> fixRewardSize(List<String> rewards, int participationNum) {
+		int sub = checkRewardNum(rewards, participationNum);
+		if(sub < 0) {
+			addRewardSize(rewards, sub);
+		}
+		if(sub > 0) {
+			subRewardSize(rewards, sub);
+		}
+		return rewards;
+	}
+
+	private static List<String> addRewardSize(List<String> rewards, int sub) {
+		for(int i = 0; i < Math.abs(sub); i++) {
+			rewards.add("미입력");
+		}
+		return rewards;
+	}
+
+	private static List<String> subRewardSize(List<String> rewards, int sub) {
+		for (int i = 0; i < sub; i++) {
+			rewards.remove(i);
+		}
+		return rewards;
 	}
 
 	public static String getParticipation() {

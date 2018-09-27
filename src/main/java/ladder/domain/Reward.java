@@ -26,7 +26,7 @@ public class Reward {
     }
 
     public void moveLine(int index, Participation participation) {
-        participation.getPointer().moveX(ladderImage.get(index).getLine());
+        participation.getPointer().moveX(ladderImage.get(index));
     }
 
     public String getParticipationReward(String name) {

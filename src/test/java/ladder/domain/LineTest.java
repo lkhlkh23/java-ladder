@@ -41,4 +41,30 @@ public class LineTest {
 		assertThat(line.setBar(4, true)).isEqualTo(false);
 	}
 
+	/* 포인터가 좌측으로 이동했는지 확인 */
+	@Test
+	public void isMoveLeftTest() {
+		/*
+		 *       a    b    c	d
+		 *       |----|    |----|
+		 * */
+		assertThat(line.isMoveLeft(0)).isEqualTo(false);
+		assertThat(line.isMoveLeft(1)).isEqualTo(true);
+		assertThat(line.isMoveLeft(2)).isEqualTo(false);
+		assertThat(line.isMoveLeft(3)).isEqualTo(true);
+	}
+
+	/* 포인터가 우측으로 이동했는지 확인 */
+	@Test
+	public void isMoveRightTest() {
+		/*
+		 *       a    b    c	d
+		 *       |----|    |----|
+		 * */
+		assertThat(line.isMoveRight(0)).isEqualTo(true);
+		assertThat(line.isMoveRight(1)).isEqualTo(false);
+		assertThat(line.isMoveRight(2)).isEqualTo(true);
+		assertThat(line.isMoveRight(3)).isEqualTo(false);
+	}
+
 }
