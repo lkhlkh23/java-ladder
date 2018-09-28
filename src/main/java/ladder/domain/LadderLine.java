@@ -69,28 +69,12 @@ public class LadderLine {
 		return Collections.unmodifiableList(points);
 	}
 
-	public boolean isMoveLeft(int pointX) {
-		if(pointX == 0) {
-			/* 좌측으로 이동이 불가능할 경우 */
-			return false;
-		}
-		return points.get(pointX);
-	}
-
-	public boolean isMoveRight(int pointX) {
-		if(pointX == points.size() - 1) {
-			/* 우측으로 이동이 불가능할 경우 */
-			return false;
-		}
-		return points.get(pointX + 1);
-	}
-
 	public void moveDistance(int index, int pointX) {
-		if(isMoveLeft(pointX)) {
+		if(pointers.get(index).isMoveLeft(points)) {
 			pointers.get(index).moveX(-1);
 		}
 
-		if(isMoveRight(pointX)) {
+		if(pointers.get(index).isMoveRight(points)) {
 			pointers.get(index).moveX(1);
 		}
 	}
