@@ -2,19 +2,32 @@ package ladder.domain;
 
 import java.util.*;
 
-public class Line {
+public class LadderLine {
 	private int countOfPerson;
 	private List<Boolean> points;
-	
-	public Line(int countOfPerson) {
+	private List<Pointer> pointers;
+
+	public LadderLine(int countOfPerson) {
 		this.countOfPerson = countOfPerson;
-		points = new ArrayList<>();
 	}
 
-	/* 테스트를 위해 난수를 통해 생성되는 리스트를 생성자를 통해 SET! */
-	public Line(int countOfPerson, List<Boolean> points) {
+	public LadderLine(int countOfPerson, List<Participation> participations) {
+		this(countOfPerson);
+		this.points = new ArrayList<>();
+		initPointers(participations);
+	}
+
+	/* 테스트를 위한 생성자! */
+	public LadderLine(int countOfPerson, List<Participation> participations, List<Boolean> points) {
 		this(countOfPerson);
 		this.points = points;
+	}
+
+	private void initPointers(List<Participation> participations) {
+		pointers = new ArrayList<>();
+		for(Participation participation : participations) {
+			pointers.add(participation.getPointer());
+		}
 	}
 	
 	public void addPoint(boolean isBar) {
@@ -44,7 +57,7 @@ public class Line {
 		return continous && prevBar(index - 1);
 	}
 
-	public Line makeLine() {
+	public LadderLine makeLine() {
 		addPoint(false);
 		for(int i = 1; i < countOfPerson; i++) {
 			addPoint(setBar(i, getRandom()));
@@ -54,10 +67,6 @@ public class Line {
 	
 	public List<Boolean> getLine() {
 		return Collections.unmodifiableList(points);
-	}
-	
-	public int getPointsSize() {
-		return points.size();
 	}
 
 	public boolean isMoveLeft(int pointX) {
@@ -74,5 +83,15 @@ public class Line {
 			return false;
 		}
 		return points.get(pointX + 1);
+	}
+
+	public void moveDistance(int index, int pointX) {
+		if(isMoveLeft(pointX)) {
+			pointers.get(index).moveX(-1);
+		}
+
+		if(isMoveRight(pointX)) {
+			pointers.get(index).moveX(1);
+		}
 	}
 }

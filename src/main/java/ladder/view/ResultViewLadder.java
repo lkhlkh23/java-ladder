@@ -1,7 +1,8 @@
 package ladder.view;
 
 import java.util.List;
-import ladder.domain.Line;
+
+import ladder.domain.LadderLine;
 import ladder.domain.Participation;
 
 public class ResultViewLadder {
@@ -9,12 +10,12 @@ public class ResultViewLadder {
 	private static final char VERTICAL_BAR = '|';
 	private static final char NO_BAR = ' ';
 
-	public static void printLadderResult(List<Line> ladderImage) {
+	public static void printLadderResult(List<LadderLine> ladderImage) {
 		printLadder(ladderImage);
 	}
 	
-	private static void printLadder(List<Line> ladderImage) {
-		for(Line line : ladderImage) {
+	private static void printLadder(List<LadderLine> ladderImage) {
+		for(LadderLine line : ladderImage) {
 			printLine(line);
 		}
 	}
@@ -23,7 +24,7 @@ public class ResultViewLadder {
 		System.out.println("사다리 결과");
 	}
 
-	private static void printLine(Line line) {
+	private static void printLine(LadderLine line) {
 		StringBuilder sb = new StringBuilder();
 		for(Boolean isBar : line.getLine()) {
 			sb.append(getPoint(isBar)).append(VERTICAL_BAR);

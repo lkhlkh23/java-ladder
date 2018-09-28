@@ -9,19 +9,8 @@ public class Pointer {
         this.pointX = pointX;
     }
 
-    public void moveX(Line line) {
-        pointX += moveDistance(line);
-    }
-
-    private int moveDistance(Line line) {
-        if(line.isMoveLeft(pointX)) {
-            return -1;
-        }
-
-        if(line.isMoveRight(pointX)) {
-            return 1;
-        }
-        return 0;
+    public void moveX(int distance) {
+        pointX += distance;
     }
 
     public int getPointX() {
