@@ -32,4 +32,5 @@ public class Pointer {
         }
         return points.get(pointX + 1);
     }
+
 }

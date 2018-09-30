@@ -69,12 +69,10 @@ public class LadderLine {
 		return Collections.unmodifiableList(points);
 	}
 
-	public void moveDistance(int index, int pointX) {
+	public void moveDistance(int index) {
 		if(pointers.get(index).isMoveLeft(points)) {
 			pointers.get(index).moveX(-1);
-		}
-
-		if(pointers.get(index).isMoveRight(points)) {
+		} else if(pointers.get(index).isMoveRight(points)) {
 			pointers.get(index).moveX(1);
 		}
 	}

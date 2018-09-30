@@ -22,7 +22,7 @@ public class Reward {
     public int getParticipationResult(Participation participation, int participationIndex) {
         for(int i = 0; i < ladderImage.size(); i++) {
             /* 참가자 한명을 사다리의 높이만큼 반복 */
-            moveLine(i, participation, participationIndex);
+            moveLine(i, participationIndex);
         }
         return participation.getPointer().getPointX();
     }
@@ -30,8 +30,8 @@ public class Reward {
     /*   @param [index : 사다리의 세로 위치, participationIndex : 참가자의 순번(몇 번째 참가자인지)
     *
     * */
-    public void moveLine(int index, Participation participation, int participationIndex) {
-        ladderImage.get(index).moveDistance(participationIndex, participation.getPointer().getPointX());
+    public void moveLine(int index, int participationIndex) {
+        ladderImage.get(index).moveDistance(participationIndex);
     }
 
     public String getParticipationReward(String name) {
