@@ -40,3 +40,4 @@ public class Participation {
 		return pointer;
 	}
 }
+/* 인스턴스 변수로 상태로 유지를 관리핧 필요 X */

@@ -3,7 +3,7 @@ package ladder.view;
 import java.util.*;
 import ladder.domain.Participation;
 import ladder.domain.Pointer;
-import ladder.domain.Reward;
+import ladder.dto.RewardDto;
 
 public class InputView {
 	private static final String SPLIT_STANDARD = ",";
@@ -58,7 +58,7 @@ public class InputView {
 		return sc.next();
 	}
 
-	public static String getParticipationName(Reward reward) {
+	public static String getParticipationName(RewardDto reward) {
 		String name = "";
 		do {
 			name = getParticipation();
@@ -67,7 +67,7 @@ public class InputView {
 
 	}
 
-	public static boolean nameCheck(String name, Reward reward) {
+	public static boolean nameCheck(String name, RewardDto reward) {
 		if(reward.isParticipation(name) || name.equals("all")) {
 			return true;
 		}
